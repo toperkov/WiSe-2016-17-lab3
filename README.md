@@ -114,7 +114,7 @@ U nastavku su uz današnje upute dane još neke upute koje dodatno mogu smanjiti
 [5] http://www.home-automation-community.com/arduino-low-power-how-to-run-atmega328p-for-a-year-on-coin-cell-battery/  
 [6] http://www.elechouse.com/elechouse/images/product/Digital%20light%20Sensor/bh1750fvi-e.pdf  
 [7] https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf  
-[8] https://learn.adafruit.com/low-power-wifi-datalogging/overview
+[8] https://learn.adafruit.com/low-power-wifi-datalogging/overview  
 [9] https://edwardmallon.wordpress.com/2014/05/21/using-a-cheap-3-ds3231-rtc-at24c32-eeprom-from-ebay/  
 [10] https://www.youtube.com/watch?v=urLSDi7SD8M  
 [11] https://www.youtube.com/watch?v=iMC6eG24S9g  
