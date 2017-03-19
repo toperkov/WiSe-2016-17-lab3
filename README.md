@@ -108,6 +108,7 @@ U nastavku su uz današnje upute dane još neke upute koje dodatno mogu smanjiti
  - Probudite procesor iz sna samo kada je to potrebno
  - Isključivanje (s MOSFET-om) vanjskih uređaja (npr. SD kartice, senzori temperature)
 
+Korištenjem navedenih uputa moguće je veoma jednostavno optimizirati potrošnju vašeg Arduino uređaja. Najveći potrošaći uz mikrokontroler su LED-ice, regulatori napona, ADC i BOD. Čak je i watchdog timer ponekad potrebno isključiti i zamijeniti ga sa preciznijim satovima, kao što je RTC (npr. DS3232), čija je potrošnja znano manja od watchdog-a. Uz to, moguće je koristiti i Arduino uređaje koji rade na manjem naponu (Arduino Pro Mini verzija 3V3) i na manjoj frekveniciji; upravo spomenuti Arduino Pro Mini na 3V3 radi na frekvenciji od 8 MHz
 
 ## Korisni linkovi:
 
