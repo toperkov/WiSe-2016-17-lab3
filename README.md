@@ -31,8 +31,8 @@ http://oregonembedded.com/batterycalc.htm
 Ubacite u vaš Arduino Uno R3 sljedeći kod i provjerite kolika je potrošnja Arduina:
 
 ```arduino
-void setup () {}
-void loop () {}
+void setup () { }
+void loop () { }
 ```
 
 te ga usporedite sa potrošnjom u scenariju kada imate ovakav kod:
