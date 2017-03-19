@@ -14,7 +14,7 @@ Kapacitet baterije se mjeri u miliampersatima (*mAh*), a to je mjera koja nam u 
 Kapacitet baterije (u mAh) / Prosječna potrošnja struje (u mA) = Prosječno trajanje života u satima
 ```
 
-Primjerice, ako je prosječna potrošnja vašeg senzora *150 mA* dok baterija ima potrošnju od *800 mAh* jednostavnom računicom dolazimo do sljedećeg rezultata:
+Primjerice, ako je prosječna potrošnja vašeg senzora *150 mA* dok baterija ima kapacitet od *800 mAh* jednostavnom računicom dolazimo do sljedećeg rezultata:
 
 ```
 800 mAh / 150 mA = 5.33 sati 
