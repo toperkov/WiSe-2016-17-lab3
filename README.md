@@ -116,3 +116,5 @@ U nastavku su uz današnje upute dane još neke upute koje dodatno mogu smanjiti
 [7] https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf  
 [8] https://learn.adafruit.com/low-power-wifi-datalogging/overview
 [9] https://edwardmallon.wordpress.com/2014/05/21/using-a-cheap-3-ds3231-rtc-at24c32-eeprom-from-ebay/
+[10] https://www.youtube.com/watch?v=urLSDi7SD8M
+[11] https://www.youtube.com/watch?v=iMC6eG24S9g
