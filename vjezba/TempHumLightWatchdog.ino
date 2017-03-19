@@ -23,7 +23,7 @@ void setup() {
   dht.begin();
   lightMeter.begin(BH1750_CONTINUOUS_HIGH_RES_MODE);
   Serial.println(F("BH1750 Test"));
-  delay(100);
+  delay(100); // give some time to send data over Serial before going to sleep
 }
 
 void loop() {
@@ -32,6 +32,7 @@ void loop() {
   delay(100); // give him some time to wake up from sleep :D
   readTempHum();
   readLight();
+  delay(100); // give some time to send data over Serial
 }
 
 
