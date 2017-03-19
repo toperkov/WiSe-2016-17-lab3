@@ -22,11 +22,31 @@ Primjerice, ako je prosječna potrošnja vašeg senzora *150 mA* dok baterija im
 
 Međutim, ukoliko želimo da naš senzorski uređaj senzorski uređaj ima autonomiju rada od primjerice **godine dana**, gore navedene pretpostavke za prosječnu potrošnju kao i za kapacitet baterije nam ne idu u prilog. Najjednostavniji način za postizanje autonomije rada senzorskog uređaja od periodu jedne godine bi bilo povećanja kapaciteta baterije. Međutim, da bismo omogućili autonomiju rada senzorskog uređaja u periodu od godine dana, trebala bi nam baterija od otprilike **1500 Ah** (za usporedbu, **akumulatori u automobilu imaju kapacitet od 120 Ah**), što ergonomski nije moguće. Prema tome, potrebno je poraditi i na smanjenju potrošnje senzorskog uređaja.
 
-Međutim, ako primjetite, senzorski čvor većinu svog vremena ne radi ništa. Samim time, ako se u periodu neaktivnosti senzorskog čvora ne mjere nikakva stanja senzora i na šalju podaci preko radio kanala, tada je senzorski čvor u osnovi neaktivan, te je potrebno u tom periodu maksimalno smanjiti njegovu potrošnju. Također, ako želimo smanjiti ukupnu veličinu senzorskog uređaja, potrebno je voditi računa o veličini, a samim time i kapacitetu baterije. Prema tome, u našem primjeru možemo govoriti o senzorskom uređaju čiji **kapacitet baterije ne prelazi otprilike 3000 mAh**. Ukoliko želimo osigurati autonomiju rada od primjerice godine dana, tada potrošnja uređaja treba biti u razini **nekoliko uA** u periodu neaktivnosti.
+Ako primjetite, senzorski čvor većinu svog vremena ne radi ništa. Samim time, ako se u periodu neaktivnosti senzorskog čvora ne mjere nikakva stanja senzora i na šalju podaci preko radio kanala, tada je senzorski čvor u osnovi neaktivan, te je potrebno u tom periodu maksimalno smanjiti njegovu potrošnju. Također, ako želimo smanjiti ukupnu veličinu senzorskog uređaja, potrebno je voditi računa o veličini, a samim time i kapacitetu baterije. Prema tome, u našem primjeru možemo govoriti o senzorskom uređaju čiji **kapacitet baterije ne prelazi otprilike 3000 mAh**. Ukoliko želimo osigurati autonomiju rada od primjerice godine dana, tada potrošnja uređaja treba biti u razini **nekoliko uA** u periodu neaktivnosti.
 
 Na navedenom linku možete procijeniti trajanje života baterije ako unesete parametre o potrošnji u periodu aktivnosti i neaktivnosti uređaja. Procjenite kolike nam vrijednosti o potrošnji trebaju da bi omogućili bateriji od *3000 mAh* autonomiju rada od godine dana. Pri tome možete uzeti u obzir da uređaj radi mjerenje jednom u **10 minuta**.
 
 http://oregonembedded.com/batterycalc.htm
+
+Ubacite u vaš Arduino Uno R3 sljedeći kod i provjerite kolika je potrošnja Arduina:
+
+```arduino
+void setup () {}
+void loop () {}
+```
+
+te ga usporedite sa potrošnjom u scenariju kada imate ovakav kod:
+
+```arduino
+#include <avr/sleep.h>
+void setup () 
+{
+  set_sleep_mode (SLEEP_MODE_PWR_DOWN);  
+  sleep_enable();
+  sleep_cpu ();  
+}
+void loop () { }
+```
 
 Koji su najveći potrošači baterije? To su redom **mikrokontroleri**, **radio primopredajnik** te u manjoj mjeri **memorija i senzori**. Redom ćemo pokazati na primjerima kako jednostavnim intervencijama možemo smanjiti potrošnju senzorskog čvora. 
 
@@ -67,6 +87,8 @@ Prema slici dolje možete primjetiti da postoje različiti periodi unutar kojih 
 ```arduino
 LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF)
 ```
+
+Sada ćete testirati sljedeći 
 
 Vaš zadatak je da modificirate navedenu skriptu danu u vježbi na način da joj omogućite korištenjem gore navedenih uputa očitanje DHT11/22 i BH1750 senzora svako jednu minutu uz što manju potrošnju energije.
 
