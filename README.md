@@ -48,7 +48,7 @@ digitalWrite(4, HIGH);
 
 Na slici se nalazi tablica od koja govori o potrošnji **ATmega328P** procesora u ovisnosti o različitim modovima spavanja (koji pokreće Arduino Uno R3 i Pro Mini). Uočite da različiti modovi spavanja mogu onemogućiti razne interne satove i komponente kako bi se smanjila potrošnja energije. Također, interesira nas na koji način možemo probuditi procesor iz stanja mirovanja, kao što je putem **interrupta** ili **timer-a**. Na sljedećem linku možete naći detaljnnije objašnjenje koje komponente procesora možemo izgasiti da bi maksimalno smanjili potrošnju procesora: http://www.gammon.com.au/power
 
-U našem slučaju ćemo koristiti najnižu potrošnju energije u stanje mirovanja, tzv. *power-down mode*. Za potrebe izrade današnje vježbe ćemo koristiti *Lightweight low power* biblioteku za Arduino od Rocketscream-a koja podržava *power-down mode* pa je instalirajte u PlatformIO.
+U našem slučaju ćemo koristiti najnižu potrošnju energije u stanje mirovanja, tzv. *power-down mode*. Za potrebe izrade današnje vježbe ćemo koristiti *Lightweight low power* biblioteku za Arduino od Rocketscream-a koja podržava *power-down mode* pa je instalirajte u PlatformIO. (HINT: ``platformio lib search Low-Power`` za traženje biblioteke)
 
 Kao što je detaljnije navedeno na linku http://www.gammon.com.au/power, najveći potrošač uz stavljanje procesora u power-down node je i omogućen ADC (*Analog to Digital Conversion*) te *brown-out* (BOD) funkcionalnost/detekcija. Jednostavnim pozivom naredbe u Arduinu isključujemo ADC i BOD te stavljamo procesor u power-down mode.
 
