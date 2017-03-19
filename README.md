@@ -48,7 +48,7 @@ digitalWrite(4, HIGH);
 
 Na slici se nalazi tablica od koja govori o potrošnji **ATmega328P** procesora u ovisnosti o različitim modovima spavanja (koji pokreće Arduino Uno R3 i Pro Mini). Uočite da različiti modovi spavanja mogu onemogućiti razne interne satove i komponente kako bi se smanjila potrošnja energije. Također, interesira nas na koji način možemo probuditi procesor iz stanja mirovanja, kao što je putem **interrupta** ili **timer-a**. Na sljedećem linku možete naći detaljnnije objašnjenje koje komponente procesora možemo izgasiti da bi maksimalno smanjili potrošnju procesora: http://www.gammon.com.au/power
 
-<img src="https://cloud.githubusercontent.com/assets/8695815/24080623/b15fb0e6-0ca3-11e7-8ca8-376df9508988.png" width="400px" height="400px" />
+<img src="https://cloud.githubusercontent.com/assets/8695815/24080623/b15fb0e6-0ca3-11e7-8ca8-376df9508988.png" width="600px" />
 
 U našem slučaju ćemo koristiti najnižu potrošnju energije u stanje mirovanja, tzv. *power-down mode*. Za potrebe izrade današnje vježbe ćemo koristiti *Lightweight low power* biblioteku za Arduino od Rocketscream-a koja podržava *power-down mode* pa je instalirajte u PlatformIO. (HINT: ``platformio lib search Low-Power`` za traženje biblioteke)
 
@@ -60,7 +60,7 @@ LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF)
 
 U ovom načinu rada gotovo sve komponente procesora su onemogućene, dok samo vanjski *interrupt* ili *timer* (kao što je watchdog timer ili *Real Time Clock - RTC*) mogu probuditi procesor. U sklopu današnje vježbe će se upotrebljavati *watchdog timer* za buđenje s *power-down sleep* stanja. *Watchdog timer* je komponenta koja se nalazi unutar AVR procesora koji resetira procesor ako se otkrije da je zaustavljeno normalna egzekucija programa. Obično se *watchdog* koristi da bi se nepouzdani program ili program sa dosta grešaka izvodio s više stabilnosti. Međutim, moguće je koristiti *watchdog timer* za buđenje procesora iz *power-down sleep* stanja, umjesto resetiranja.
 
-<img src="https://cloud.githubusercontent.com/assets/8695815/24080639/10eaa994-0ca4-11e7-8ec0-106f41727389.png" width="400px" height="400px" />
+<img src="https://cloud.githubusercontent.com/assets/8695815/24080639/10eaa994-0ca4-11e7-8ec0-106f41727389.png" width="600px" />
 
 Prema slici dolje možete primjetiti da postoje različiti periodi unutar kojih *watchdog timer* može probuditi naš procesor. Ako želimo što više držati procesor u *power-down modu*, tada on preko watchdog timer-a može biti maksimalno 8 s. Jednostavnom modifikacijom gore navedene naredbe postavljamo procesor u power-down mode na period od 8 sekundi.
 
@@ -70,9 +70,9 @@ LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF)
 
 Vaš zadatak je da modificirate navedenu skriptu danu u vježbi na način da joj omogućite korištenjem gore navedenih uputa očitanje DHT11/22 i BH1750 senzora svako jednu minutu uz što manju potrošnju energije.
 
-<img src="https://cloud.githubusercontent.com/assets/8695815/24080649/330628be-0ca4-11e7-9428-91578d7aa339.jpg" width="400px" height="400px" />
-
 U nastavku su uz današnje upute dane još neke upute koje dodatno mogu smanjiti ukupnu potrošnju senzorskog čvora, a koje nažalost nećemo u sklopu vježbe pokriti:
+
+<img src="https://cloud.githubusercontent.com/assets/8695815/24080649/330628be-0ca4-11e7-9428-91578d7aa339.jpg" width="600px" />
 
  - Pokretanje procesora na nižoj frekvenciji
  - Pokretanje procesor na nižem naponu
