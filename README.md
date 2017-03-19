@@ -32,6 +32,12 @@ Koji su najveći potrošači baterije? To su redom **mikrokontroleri**, **radio 
 
 ## Optimizacija potrošnje senzora
 
+
+<img src="https://cloud.githubusercontent.com/assets/8695815/24080414/ff06e742-0c9e-11e7-8ba6-984ff94f51fb.png" width="400px" height="400px" />
+
+<!---![dht11bh1750_bb](https://cloud.githubusercontent.com/assets/8695815/24080414/ff06e742-0c9e-11e7-8ba6-984ff94f51fb.png)
+-->
+
 U primjeru s prošle vježbe, cilj je napraviti takvu senzorsku mrežu koja će mjeriti temperaturu/vlagu i osvjetljenje svako par minuta, dok će ostatak vremena između dva očitanja biti neaktivan. Pri tome smo upotrebljavali **DHT11/22** senzor za očitanje temperature/vlage, te smo koristili senzor **BH1750** za očitanje razine osvjetljenja. Međutim, ako pogledamo detaljnije datasheet naših senzora, primjetit ćete da senzori DHT11/22 u tzv. idle mode-u (kada ne radi očitanja) troši otprilike **50uA**, što je ipak previše za naš senzorski uređaj. Najjednostavniji način smanjenja potrošnje takvog senzora bi bilo **isključivanje** sa napajanja u periodu neaktivnosti senzora. To možemo napraviti jednostavno da se senzor napaja sa jednog od **digitalnih pin-ova** u periodu aktivnosti, te u periodu neaktivnosti softverski isključimo digitalni pin te mu uskratimo napajanje. Također, u periodu aktivnosti potrošnja takvog senzora je otprilike 1,5 mA. Sličnu stvar ćete napraviti i sa senzorom osvjetljenja. Kod BH1750 senzora potrošnja u periodu neaktivnosti je 1.0 uA što je čak povoljno za naš scenarij. Prema slici spojite senzore te testirajte kod koji je dan u prilogu ove vježbe. Primjetite da se kod razlikuje jedino u tome što prije početka mjerenja palimo digitale pinove:
 
 ```arduino
