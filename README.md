@@ -34,7 +34,7 @@ Koji su najveći potrošači baterije? To su redom **mikrokontroleri**, **radio 
 
 U primjeru s prošle vježbe, cilj je napraviti takvu senzorsku mrežu koja će mjeriti temperaturu/vlagu i osvjetljenje svako par minuta, dok će ostatak vremena između dva očitanja biti neaktivan. Pri tome smo upotrebljavali **DHT11/22** senzor za očitanje temperature/vlage, te smo koristili senzor **BH1750** za očitanje razine osvjetljenja. Međutim, ako pogledamo detaljnije datasheet naših senzora, primjetit ćete da senzori DHT11/22 u tzv. idle mode-u (kada ne radi očitanja) troši otprilike **50uA**, što je ipak previše za naš senzorski uređaj. Najjednostavniji način smanjenja potrošnje takvog senzora bi bilo **isključivanje** sa napajanja u periodu neaktivnosti senzora. To možemo napraviti jednostavno da se senzor napaja sa jednog od **digitalnih pin-ova** u periodu aktivnosti, te u periodu neaktivnosti softverski isključimo digitalni pin te mu uskratimo napajanje. Također, u periodu aktivnosti potrošnja takvog senzora je otprilike 1,5 mA. Sličnu stvar ćete napraviti i sa senzorom osvjetljenja. Kod BH1750 senzora potrošnja u periodu neaktivnosti je 1.0 uA što je čak povoljno za naš scenarij. Prema slici spojite senzore te testirajte kod koji je dan u prilogu ove vježbe. Primjetite da se kod razlikuje jedino u tome što prije početka mjerenja palimo digitale pinove:
 
-```
+```arduino
 digitalWrite(4, HIGH);
 ```
 
@@ -46,7 +46,7 @@ U našem slučaju ćemo koristiti najnižu potrošnju energije u stanje mirovanj
 
 Kao što je detaljnije navedeno na linku http://www.gammon.com.au/power, najveći potrošač uz stavljanje procesora u power-down node je i omogućen ADC (*Analog to Digital Conversion*) te *brown-out* (BOD) funkcionalnost/detekcija. Jednostavnim pozivom naredbe u Arduinu isključujemo ADC i BOD te stavljamo procesor u power-down mode.
 
-```
+```arduino
 LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF)
 ```
 
@@ -54,7 +54,7 @@ U ovom načinu rada gotovo sve komponente procesora su onemogućene, dok samo va
 
 Prema slici dolje možete primjetiti da postoje različiti periodi unutar kojih *watchdog timer* može probuditi naš procesor. Ako želimo što više držati procesor u *power-down modu*, tada on preko watchdog timer-a može biti maksimalno 8 s. Jednostavnom modifikacijom gore navedene naredbe postavljamo procesor u power-down mode na period od 8 sekundi.
 
-```
+```arduino
 LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF)
 ```
 
