@@ -40,7 +40,7 @@ te ga usporedite sa potrošnjom u scenariju kada imate ovakav kod (**NAPOMENA:**
 ```arduino
 include <LowPower.h>
 void setup() {}
-void loop() { LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF);}
+void loop() { LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF); }
 ```
 
 Koji su najveći potrošači baterije? To su redom **mikrokontroleri**, **radio primopredajnik** te u manjoj mjeri **memorija i senzori**. Redom ćemo pokazati na primjerima kako jednostavnim intervencijama možemo smanjiti potrošnju senzorskog čvora. 
