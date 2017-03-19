@@ -33,7 +33,7 @@ Koji su najveći potrošači baterije? To su redom **mikrokontroleri**, **radio 
 ## Optimizacija potrošnje senzora
 
 
-<img src="https://cloud.githubusercontent.com/assets/8695815/24080414/ff06e742-0c9e-11e7-8ba6-984ff94f51fb.png" width="400px" height="400px" />
+<img src="https://cloud.githubusercontent.com/assets/8695815/24080434/691c28cc-0c9f-11e7-8945-a862b272fff7.png" width="400px" height="400px" />
 
 <!---![dht11bh1750_bb](https://cloud.githubusercontent.com/assets/8695815/24080414/ff06e742-0c9e-11e7-8ba6-984ff94f51fb.png)
 -->
