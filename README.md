@@ -38,7 +38,7 @@ void loop () { }
 te ga usporedite sa potrošnjom u scenariju kada imate ovakav kod (**NAPOMENA:** potrebno je instalirati ``Low-Power`` biblioteku od Rocketscream-a):
 
 ```arduino
-include <LowPower.h>
+#include <LowPower.h>
 void setup() {}
 void loop() { LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF); }
 ```
