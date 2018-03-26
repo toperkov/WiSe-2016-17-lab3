@@ -22,7 +22,7 @@ void setup() {
   Serial.begin(115200);
   Serial.println(F("DHTxx test!"));
   dht.begin();
-  lightMeter.begin(BH1750_CONTINUOUS_HIGH_RES_MODE);
+  lightMeter.begin(BH1750::CONTINUOUS_HIGH_RES_MODE);
   Serial.println(F("BH1750 Test"));
   delay(100); // give some time to send data over Serial before going to sleep
 }
