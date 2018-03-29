@@ -6,6 +6,9 @@
 #include <LowPower.h>
 
 #define DHTPIN 3
+#define DHTPOWERPIN 4
+#define BHPOWERPIN 5
+
 #define DHTTYPE DHT22
 
 DHT dht(DHTPIN, DHTTYPE);
@@ -16,9 +19,12 @@ void readTempHum();
 void readLight();
 
 void setup() {
-  pinMode(4,OUTPUT);
-  digitalWrite(4,LOW);
-
+  pinMode(DHTPOWERPIN,OUTPUT);
+  digitalWrite(DHTPOWERPIN,HIGH);
+  pinMode(BHPOWERPIN,OUTPUT);
+  digitalWrite(BHPOWERPIN,HIGH);
+  delay(1000); // give some time to send data over Serial before going to sleep
+  
   Serial.begin(115200);
   Serial.println(F("DHTxx test!"));
   dht.begin();
@@ -31,14 +37,14 @@ void loop() {
   // Enter power down state for 8 s with ADC and BOD module disabled
   LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
   delay(100); // give him some time to wake up from sleep :D
-  readTempHum();
   readLight();
+  readTempHum();
   delay(100); // give some time to send data over Serial
 }
 
 
 void readTempHum() {
-  digitalWrite(4, HIGH);
+  digitalWrite(BHPOWERPIN, HIGH);
 
   // Wait at least 2 seconds seconds between measurements.
   unsigned long previousMillis = millis();
@@ -57,6 +63,7 @@ void readTempHum() {
 }
 
 void readLight() {
+  digitalWrite(DHTPOWERPIN,HIGH); 
   Serial.print(F("Light: "));
   Serial.print(lightMeter.readLightLevel());
   Serial.println(F(" lx"));
