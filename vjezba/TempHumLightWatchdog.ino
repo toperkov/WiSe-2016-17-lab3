@@ -44,7 +44,7 @@ void loop() {
 
 
 void readTempHum() {
-  digitalWrite(BHPOWERPIN, HIGH);
+  digitalWrite(DHTPOWERPIN, HIGH);
 
   // Wait at least 2 seconds seconds between measurements.
   unsigned long previousMillis = millis();
@@ -63,7 +63,7 @@ void readTempHum() {
 }
 
 void readLight() {
-  digitalWrite(DHTPOWERPIN,HIGH); 
+  digitalWrite(BHPOWERPIN,HIGH); 
   Serial.print(F("Light: "));
   Serial.print(lightMeter.readLightLevel());
   Serial.println(F(" lx"));
